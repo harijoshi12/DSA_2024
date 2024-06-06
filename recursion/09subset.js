@@ -35,3 +35,14 @@ const findSubset2 = (arr, idx = 0, ans = [], curr = []) => {
   return ans;
 };
 console.log("sol 2 = ", findSubset2(arr));
+
+const findSubset3 = (arr) => {
+  if (arr.length == 0) {
+    return [[]];
+  }
+  let el = arr[0];
+  const woEl = findSubset3(arr.slice(1));
+  const wEl = woEl.map((subSet) => [el, ...subSet]);
+  return [...woEl, ...wEl];
+};
+console.log("sol 3 = ", findSubset3(arr));
